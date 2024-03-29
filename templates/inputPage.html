@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Input Page</title>
+        <link rel="stylesheet" type="text/css" href="../static/stylesheets/factCheck.css">
+        <script type="text/javascript" src="../static/inputPages.js"></script>
+    </head>
+    
+    <body>
+
+        <div>
+            <h1> FactCheck </h1>
+            <p> Enter the contents of the article you would like to fact check: </p>
+        </div>
+
+        <div>
+            <form>
+            <textarea id="outputTextbox" name="outputTextbox" rows="10" cols="100" placeholder="Input article text"></textarea>
+            </form>
+        </div>
+
+        <div>
+            <button id="submitButton" onclick="submitArticle()">Submit</button>
+        </div>
+
+        <div>
+            <p id="outputText">Article verdict</p>
+            <textarea id="outputTextbox" name="outputTextbox" rows="10" cols="100" readonly></textarea>
+        </div>
+
+    </body>
+
+</html>
