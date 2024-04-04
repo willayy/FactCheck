@@ -1,0 +1,7 @@
+.footer {
+    font: "roboto";
+    width: 100%;
+    background-color: #63666e;
+    border-top: 3px solid #303236;
+    height: 50px;
+}

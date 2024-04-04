@@ -3,11 +3,25 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 6rem;
-  min-height: 100vh;
+  padding: 60px;
+  min-height: 1250px;
 }
 
 .center_aligned_text_box {
+  width: 100%;
   text-align: center;
+}
 
+.i_text_area {
+  width: 75%;
+  height: 200px;
+  border: 3px solid #303030;
+  border-radius: 5px;
+}
+
+.o_text_area {
+  width: 75%;
+  height: 500px;
+  border: 3px solid #303030;
+  border-radius: 5px;
 }
