@@ -3,6 +3,7 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/page";
 import Navbar from "@/components/navbar/page";
+import Layout from "@/components/layout/page";
 import { Suspense } from "react";
 import Loading from "./loading";
 
@@ -19,13 +20,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <Suspense fallback = {<Loading />}/>
-        <body className={inter.className}>
-            <Navbar />
+    <Layout>
+      <Navbar />
+        <Suspense fallback = {<Loading />}>
             {children}
-            <Footer />
-        </body>
-    </html>
+        </Suspense>
+      <Footer />
+    </Layout>  
   );
 }

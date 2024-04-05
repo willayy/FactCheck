@@ -1,17 +1,21 @@
 "use client";
 import styles from "./homepage.module.css";
-import Loader from "react-loader-spinner";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { TailSpin } from "react-loader-spinner";
 
 export default function Loading(){ 
   return (
     <main className={styles.main}>
         <div>
-            <Loader
-                color="#b0b8cf"
-                radius={5} 
-                type={"TailSpin"}        
-            />
+        <TailSpin
+          visible={true}
+          height="80"
+          width="80"
+          color="#4fa94d"
+          ariaLabel="tail-spin-loading"
+          radius="1"
+          wrapperStyle={{}}
+          wrapperClass=""
+          />
         </div>
     </main>
   ) 
