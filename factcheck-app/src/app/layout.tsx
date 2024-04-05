@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children, // will be a page or nested layout
-}: {
+}: Readonly<{
   children: React.ReactNode
-}) {
+}>) {
   return (
     <html lang="en">
       <body className={inter.className}>
