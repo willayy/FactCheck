@@ -1,0 +1,9 @@
+.i_link_text_area_div {
+    align-items: center;
+    min-height: 45px;
+}
+
+.i_link_text_area {
+    width: 75%;
+    height: 35px;
+}

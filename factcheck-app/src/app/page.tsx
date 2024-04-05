@@ -1,5 +1,6 @@
-import ReviewTextButton from "@/components/reviewTextButton/page";
-import styles from "./page.module.css";
+import ContinueButton from "@/components/continueButton/page";
+import styles from "./homepage.module.css";
+import InputLinkTextArea from "@/components/inputLinkTextArea/page";
 
 export default function Page() {
   return (
@@ -8,17 +9,11 @@ export default function Page() {
 
         <h1 className={styles.factchecklogo}>Welcome to FactCheck</h1>
 
-        <p className={styles.description}>Uses LLM artifical intelligence to factcheck news articles.</p>
+        <p className={styles.description}>Please input a link to an article you want to review.</p>
 
-        <textarea className={styles.i_text_area} name="InputTextArea" id="InputTextArea" placeholder="Input article text here!"></textarea>
+        <InputLinkTextArea />
 
-        <ReviewTextButton />
-
-        <h2 className={styles.factchecklogo}>FactCheck verdicts</h2>
-
-        <p className={styles.description}>These verdicts are far from perfect as LLM's are prone to hallucination, feel free to suggest changes</p>
-
-        <textarea className={styles.o_text_area} name="OutputTextArea" id="OutputTextArea" placeholder="Output article text here!"></textarea>
+        <ContinueButton buttonText = "Continue" />
 
       </div>
     </main>

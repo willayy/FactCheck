@@ -1,5 +1,8 @@
 :root {
   --background-rgb: 242, 242, 242;
+  --textarea-border: 3px solid #303030;
+  --textarea-border-radius: 5px;
+  --standard-margins: 25px 25px 25px 25px;
 }
 
 * {
@@ -16,22 +19,21 @@ html {
 body {
   height: 100%;
   overflow: auto;
-}
-
-body {
   background-color: rgb(var(--background-rgb));
 }
 
 textarea {
   font: inherit;
   resize: none;
-  margin: 25px 25px 25px 25px;
+  margin: var(--standard-margins);
+  border: var(--textarea-border);
+  border-radius: var(--textarea-border-radius);
 }
 
 button {
   font: inherit;
   cursor: pointer;
-  margin: 25px 25px 25px 25px;
+  margin: var(--standard-margins);
 }
 
 h1 {

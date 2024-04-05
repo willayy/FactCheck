@@ -1,0 +1,13 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    min-height: 1250px;
+  }
+  
+.center_aligned_text_box {
+    width: 100%;
+    text-align: center;
+  }
