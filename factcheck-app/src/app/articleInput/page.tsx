@@ -1,4 +1,4 @@
-import ContinueButton from "@/components/continueButton/page";
+import ExeButton from "@/components/exeButton/page";
 import InputTextArea from "@/components/inputTextArea/page";
 import OutputTextArea from "@/components/outputTextArea/page";
 import styles from "./articleInput.module.css";
@@ -14,7 +14,7 @@ export default function Page() {
 
         <InputTextArea placeholder = "Input article text here!" />
 
-        <ContinueButton buttonText = "Review text!" />
+        <ExeButton buttonText = "Review text!" />
 
         <h2 className={styles.factchecklogo}>FactCheck verdicts</h2>
 

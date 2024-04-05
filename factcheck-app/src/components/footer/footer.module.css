@@ -1,7 +1,28 @@
 .footer {
-    font: "roboto";
+    display: flex; 
+    justify-content: center;
     width: 100%;
     background-color: #63666e;
     border-top: 3px solid #303236;
     height: 50px;
+}
+
+.footer_p {
+    padding-right: 35px;
+    padding-top: 12px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer_link {
+    padding-right: 35px;
+    padding-top: 12px;
+    font-size: 20px;
+    color: #397bff;
+    transition: all 0.3s ease-in-out;
+}
+
+.footer_link:hover {
+    color: rgba(28, 60, 126, 0.51);
+    text-decoration: underline;
 }

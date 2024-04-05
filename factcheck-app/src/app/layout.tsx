@@ -3,6 +3,8 @@ import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer/page";
 import Navbar from "@/components/navbar/page";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Roboto_Mono({ subsets: ["latin"] });
 
@@ -18,11 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-      </body>
+      <Suspense fallback = {<Loading />}/>
+        <body className={inter.className}>
+            <Navbar />
+            {children}
+            <Footer />
+        </body>
     </html>
   );
 }

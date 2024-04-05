@@ -1,6 +1,6 @@
-import ContinueButton from "@/components/continueButton/page";
 import styles from "./homepage.module.css";
 import InputLinkTextArea from "@/components/inputLinkTextArea/page";
+import NavButton from "@/components/navButton/page";
 
 export default function Page() {
   return (
@@ -13,7 +13,10 @@ export default function Page() {
 
         <InputLinkTextArea />
 
-        <ContinueButton buttonText = "Continue" />
+        <NavButton 
+          buttonText = "Continue"
+          destination = "/articleInput" 
+        />
 
       </div>
     </main>
