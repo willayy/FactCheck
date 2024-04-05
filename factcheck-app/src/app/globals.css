@@ -5,6 +5,24 @@
   --standard-margins: 25px 25px 25px 25px;
 }
 
+/* Scrollbar */
+
+::-webkit-scrollbar { /* width */
+  width: 10px;
+}
+
+::-webkit-scrollbar-track { /* Track */
+  background: #b0b8cf; 
+}
+
+::-webkit-scrollbar-thumb { /* Handle */
+  background: #909bbb; 
+}
+
+::-webkit-scrollbar-thumb:hover { /* Handle on hover */
+  background: #5f677c; 
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
