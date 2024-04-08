@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
-import "./globals.css";
-import Footer from "@/components/footer/page";
-import Navbar from "@/components/navbar/page";
-import Layout from "@/components/layout/page";
 import { Suspense } from "react";
+import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import Loading from "./loading";
+import Footer from "@/components/footer/footer";
+import Navbar from "@/components/navBar/navBar";
+import Layout from "@/components/layout/layout";
+import NestedRouteError from "./error";
+import "./globals.css";
 
 const inter = Roboto_Mono({ subsets: ["latin"] });
 
@@ -23,7 +25,9 @@ export default function RootLayout({
     <Layout>
       <Navbar />
         <Suspense fallback = {<Loading />}>
+          <ErrorBoundary errorComponent = {NestedRouteError}>
             {children}
+          </ErrorBoundary>
         </Suspense>
       <Footer />
     </Layout>  

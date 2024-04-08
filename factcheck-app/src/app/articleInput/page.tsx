@@ -1,6 +1,6 @@
-import ExeButton from "@/components/exeButton/page";
-import InputTextArea from "@/components/inputTextArea/page";
-import OutputTextArea from "@/components/outputTextArea/page";
+import ExeButton from "@/components/exeButton/exeButton";
+import InputTextArea from "@/components/inputTextArea/inputTextArea";
+import OutputTextArea from "@/components/outputTextArea/outputTextArea";
 import styles from "./articleInput.module.css";
 
 export default function Page() {

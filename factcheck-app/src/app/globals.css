@@ -29,6 +29,15 @@
   margin: 0;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  min-height: 1250px;
+}
+
 html {
   overflow: hidden;
   height: 100%;

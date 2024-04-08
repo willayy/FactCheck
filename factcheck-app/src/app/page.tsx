@@ -1,10 +1,11 @@
 import styles from "./homepage.module.css";
-import InputLinkTextArea from "@/components/inputLinkTextArea/page";
-import NavButton from "@/components/navButton/page";
+import InputLinkTextArea from "@/components/inputLinkTextArea/inputLinkTextArea";
+import NavButton from "@/components/navButton/navButton";
 
 export default function Page() {
   return (
     <main className={styles.main}>
+
       <div className={styles.center_aligned_text_box}>
 
         <h1 className={styles.factchecklogo}>Welcome to FactCheck</h1>
@@ -17,8 +18,8 @@ export default function Page() {
           buttonText = "Continue"
           destination = "/articleInput" 
         />
-
       </div>
+
     </main>
   );
 }
