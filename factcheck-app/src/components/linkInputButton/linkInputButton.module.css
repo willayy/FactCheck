@@ -13,6 +13,17 @@
     margin-top: 0px; /* Overrides global css */
 }
 
+.nav_button:disabled {
+    background-color: #b0b8cf75;
+    color: #30323675;
+    cursor: not-allowed;
+}
+.nav_button:disabled:hover {
+    background-color: #b0b8cf75;
+    color: #30323675;
+    cursor: not-allowed;
+}
+
 .nav_button:hover {
     background-color: #45a049;
 }

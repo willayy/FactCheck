@@ -57,6 +57,15 @@ textarea {
   border-radius: var(--textarea-border-radius);
 }
 
+input {
+
+  font: inherit;
+  resize: none;
+  margin: var(--standard-margins);
+  border: var(--textarea-border);
+  border-radius: var(--textarea-border-radius);
+}
+
 button {
   font: inherit;
   cursor: pointer;
