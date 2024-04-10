@@ -1,5 +1,3 @@
-"use client";
-
 import { useRouter } from "next/navigation";
 import styles from "./linkInputButton.module.css";
 

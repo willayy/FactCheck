@@ -1,5 +1,3 @@
-"use client"
-
 import React, {ChangeEvent} from 'react';
 import styles from "./linkInput.module.css";
 

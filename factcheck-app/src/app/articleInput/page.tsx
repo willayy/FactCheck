@@ -1,11 +1,12 @@
-import ExeButton from "@/components/exeButton/exeButton";
 import OutputTextArea from "@/components/outputTextArea/outputTextArea";
 import styles from "./articleInput.module.css";
 import InputTextArea from "@/components/inputTextArea/inputTextArea";
+import ExecuteReviewButton from "@/components/executeReviewButton/executeReviewButton";
 
 export default function Page() {
   return (
     <main className={styles.main}>
+
       <div className={styles.center_aligned_text_box}>
 
         <h1 className={styles.factchecklogo}>Welcome to FactCheck</h1>
@@ -14,7 +15,7 @@ export default function Page() {
 
         <InputTextArea placeholder = "Input article text here!" />
 
-        <ExeButton buttonText = "Review text!" />
+        <ExecuteReviewButton buttonText = "Review text!" />
 
         <h2 className={styles.factchecklogo}>FactCheck verdicts</h2>
 
@@ -23,6 +24,7 @@ export default function Page() {
         <OutputTextArea placeholder= "Factcheck verdict" />
 
       </div>
+      
     </main>
   );
 }
