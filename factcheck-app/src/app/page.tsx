@@ -1,5 +1,5 @@
 import styles from "./homepage.module.css";
-import InputLinkTextArea from "@/components/inputLinkTextArea/inputLinkTextArea";
+import InputLink from "@/components/inputLink/inputLink";
 import NavButton from "@/components/navButton/navButton";
 
 export default function Page() {
@@ -12,7 +12,7 @@ export default function Page() {
 
         <p className={styles.description}>Please input a link to an article you want to review.</p>
 
-        <InputLinkTextArea />
+        <InputLink />
 
         <NavButton 
           buttonText = "Continue"

@@ -1,5 +1,5 @@
 import ExeButton from "@/components/exeButton/exeButton";
-import InputTextArea from "@/components/inputTextArea/inputTextArea";
+import InputText from "@/components/inputText/inputText";
 import OutputTextArea from "@/components/outputTextArea/outputTextArea";
 import styles from "./articleInput.module.css";
 
@@ -12,7 +12,7 @@ export default function Page() {
 
         <p className={styles.description}>Uses LLM artifical intelligence to factcheck news articles.</p>
 
-        <InputTextArea placeholder = "Input article text here!" />
+        <InputText placeholder = "Input article text here!" />
 
         <ExeButton buttonText = "Review text!" />
 
