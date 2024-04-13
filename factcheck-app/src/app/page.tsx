@@ -12,7 +12,7 @@ export default function Page() {
 
   // Set the initial state of the input link and the button.
   const [inputLink, setInputLink] = useState<string>("");
-  const [InputLinkButtonEnabled, setInputLinkButtonEnabled] = useState<boolean>(false);
+  const [inputLinkButtonEnabled, setInputLinkButtonEnabled] = useState<boolean>(false);
 
   // Try to fetch last input link from local storage.
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function Page() {
 
         <LinkInput value={inputLink} valueSetter={setValueToInputLink} />
         
-        <LinkInputButton destination="/articleInput" enabled={InputLinkButtonEnabled} />
+        <LinkInputButton destination="/articleInput" enabled={inputLinkButtonEnabled} />
 
       </div>
 
