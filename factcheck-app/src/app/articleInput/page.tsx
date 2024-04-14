@@ -1,17 +1,42 @@
+"use client"
+
 import OutputTextArea from "@/components/outputTextArea/outputTextArea";
 import styles from "./articleInput.module.css";
-import InputTextArea from "@/components/inputTextArea/inputTextArea";
 import ExecuteReviewButton from "@/components/executeReviewButton/executeReviewButton";
-import { scrapeDynamicText } from "@/scripts/scraping";
+import { useEffect, useState } from "react";
+import { scrapeTextFromUrl } from "../scrapeurl/scripts";
 
 export default function Page() {
 
-  // Example usage
-  const url = 'https://sv.wikipedia.org/wiki/Qin_Shi_Huangdis_mausoleum';
+  // Set the initial state of the fetched text.
+  const [fetchedText, setFetchedText] = useState<string>("");
 
-  scrapeDynamicText(url).then((text) => {
-    console.log('Scraped dynamic text:', text);
-  });
+  useEffect(() => {
+    // Fetch the input link from local storage and scrape the text from the URL.
+    const fetchedInputLink = localStorage.getItem('inputLink');
+    if (fetchedInputLink) {
+      scrapeTextFromUrl(fetchedInputLink).then((text) => {
+        setFetchedText(text);
+      });
+    }
+
+    // Set the fetched text to a loading message.
+    setFetchedText("Fetching article information");
+    
+    // While loading make dots appear and disappear to indicate loading.
+    const interval = setInterval(() => {
+      setFetchedText((text) => {
+        if (text.startsWith("Fetching article information")) {
+          return text.endsWith("...") ? text.slice(0, -3) : text + ".";
+        } else {
+          clearInterval(interval); // Stop the interval if loading is complete
+          return text; // Return the fetched text as is
+        }
+      });
+    }, 500);
+    return () => clearInterval(interval);
+
+  }, [] /*<--- Run only once when the page is loaded */);
 
   return (
     <main className={styles.main}>
@@ -22,7 +47,7 @@ export default function Page() {
 
         <p className={styles.description}>Text scraped from the input url</p>
 
-        <InputTextArea placeholder = "Fetched article information" />
+        <OutputTextArea placeholder = "Not fetching..." width={"75%"} height={"500px"} output={fetchedText}/>
 
         <ExecuteReviewButton buttonText = "Review text!" />
 
@@ -30,7 +55,7 @@ export default function Page() {
 
         <p className={styles.description}>These verdicts are far from perfect as LLM's are prone to hallucination, feel free to suggest changes</p>
 
-        <OutputTextArea placeholder= "Factcheck verdict" />
+        <OutputTextArea placeholder= "Factcheck verdict" width={"75%"} height={"500px"} />
 
       </div>
       
