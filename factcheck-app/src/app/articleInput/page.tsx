@@ -5,11 +5,13 @@ import styles from "./articleInput.module.css";
 import ExecuteReviewButton from "@/components/executeReviewButton/executeReviewButton";
 import { useEffect, useState } from "react";
 import { scrapeTextFromUrl } from "../scrapeurl/scripts";
+import { local_aiReviewText } from "../aireviewtext/scripts";
 
 export default function Page() {
 
   // Set the initial state of the fetched text.
   const [fetchedText, setFetchedText] = useState<string>("");
+  const [reviewedText, setReviewedText] = useState<string>("");
 
   useEffect(() => {
     // Fetch the input link from local storage and scrape the text from the URL.

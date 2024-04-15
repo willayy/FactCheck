@@ -35,7 +35,8 @@ const OutputTextArea = (props: OutputTextAreaProps) => {
             name="InputTextArea" 
             id="InputTextArea" 
             placeholder={props.placeholder} 
-            value={props.output}>
+            value={props.output}
+            readOnly={true}>
                 
             </textarea>
         );
