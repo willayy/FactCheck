@@ -11,4 +11,4 @@ export async function scrapeTextFromUrl(url: string) {
     );
     let text = await res.json();
     return text;
-  }
+}

@@ -5,7 +5,8 @@ import styles from "./articleInput.module.css";
 import ExecuteReviewButton from "@/components/executeReviewButton/executeReviewButton";
 import { useEffect, useState } from "react";
 import { scrapeTextFromUrl } from "../scrapeurl/scripts";
-import { local_aiReviewText } from "../aireviewtext/scripts";
+import { local_aiReviewText } from "@/app/aireviewtext/scripts";
+import { rollingDots } from "@/scripts/rollingdots";
 
 export default function Page() {
 
@@ -17,28 +18,28 @@ export default function Page() {
     // Fetch the input link from local storage and scrape the text from the URL.
     const fetchedInputLink = localStorage.getItem('inputLink');
     if (fetchedInputLink) {
+      let interval: NodeJS.Timeout;
+      rollingDots("Fetching article information",setFetchedText).then((returnInterval) => {
+        interval = returnInterval;
+      });
       scrapeTextFromUrl(fetchedInputLink).then((text) => {
+        clearInterval(interval)
         setFetchedText(text);
       });
     }
-
-    // Set the fetched text to a loading message.
-    setFetchedText("Fetching article information");
-    
-    // While loading make dots appear and disappear to indicate loading.
-    const interval = setInterval(() => {
-      setFetchedText((text) => {
-        if (text.startsWith("Fetching article information")) {
-          return text.endsWith("...") ? text.slice(0, -3) : text + ".";
-        } else {
-          clearInterval(interval); // Stop the interval if loading is complete
-          return text; // Return the fetched text as is
-        }
-      });
-    }, 500);
-    return () => clearInterval(interval);
-
   }, [] /*<--- Run only once when the page is loaded */);
+
+  // Function to execute the review of the fetched text.
+  const executeReview = () => {
+    let interval: NodeJS.Timeout;
+    rollingDots("Reviewing article",setReviewedText).then((returnInterval) => {
+      interval = returnInterval;
+    });
+    local_aiReviewText(fetchedText).then((reviewedText) => {
+      clearInterval(interval);
+      setReviewedText(reviewedText ?? "Error: No response from the AI model");
+    });
+  };
 
   return (
     <main className={styles.main}>
@@ -51,13 +52,13 @@ export default function Page() {
 
         <OutputTextArea placeholder = "Not fetching..." width={"75%"} height={"500px"} output={fetchedText}/>
 
-        <ExecuteReviewButton buttonText = "Review text!" />
+        <ExecuteReviewButton buttonText = "Review text!" onClick={executeReview} />
 
         <h2 className={styles.factchecklogo}>FactCheck verdicts</h2>
 
         <p className={styles.description}>These verdicts are far from perfect as LLM's are prone to hallucination, feel free to suggest changes</p>
 
-        <OutputTextArea placeholder= "Factcheck verdict" width={"75%"} height={"500px"} />
+        <OutputTextArea placeholder= "Factcheck verdict" width={"75%"} height={"500px"} output={reviewedText}/>
 
       </div>
       
